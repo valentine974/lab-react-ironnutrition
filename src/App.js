@@ -31,9 +31,7 @@ function App() {
   function deleteFood(foodToDelete) {
     const deletedFoodList = foodListCopy.slice().filter((food) => {
       return food.name !== foodToDelete;
-    });
-    // if(deletedFoodList.length === 0){setFoodList(deletedFoodList);}
-    // else { setFoodList(deletedFoodList);}
+    }); 
     setFoodList(deletedFoodList)
 
   }
@@ -62,9 +60,15 @@ function App() {
       <hr />
 
       <Row>
-        {foodList.map((food) => {
+      {foodList.length >0 ?
+        (foodList.map((food) => {
           return <FoodBox food={food} delete={deleteFood} />; 
-        })}
+        }))
+        : <img src="" alt="no food" />
+      }
+
+
+        
         
        
       </Row>
